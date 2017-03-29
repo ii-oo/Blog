@@ -1,0 +1,32 @@
+﻿{#
+	src/BlogBundle/ressources/views/Hello/article.html.twig
+	Variables exposées : 
+		$id
+#}
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Visualiser l'article : {{ id }}</title>
+	</head>
+	<body>
+		<header>
+			<h1>Un article</h1>
+			Action = {{ action }} <br />
+			<p>Url = <a href="{{ url }}">Nouvel article</a></p>
+		</header>	
+		<main>
+			<body>
+				<article data-id="{{ id }}">
+					<header>
+						<h2>Titre de l'article {{ id}} <br /></h2>
+					</header>
+				</article>	
+			</body>
+		</main>
+		<footer>
+			Powered by Symfony 2.8
+		</footer>
+	</body>
+</html>

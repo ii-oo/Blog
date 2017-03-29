@@ -1,0 +1,12 @@
+blog_homepage:
+    path:     /
+    defaults: { _controller: BlogBundle:Default:index }
+blog_hello:
+    path: /hello-world
+    defaults: { _controller: BlogBundle:Blog:index}
+blog_voir:
+    path: /blog/post/{id}
+    defaults: { _controller: BlogBundle:Blog:voir }
+blog_ajouter:
+    path: /blog/ajouter
+    defaults: { _controller: BlogBundle:Blog:ajouter}
