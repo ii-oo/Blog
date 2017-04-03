@@ -1,23 +1,18 @@
-﻿{#
+{#
 	src/BlogBundle/ressources/views/Hello/index.html.twig
+	Etend le template parent src/BlogBundle/Ressources/views/layout.html.twig
 	Variables exposées : 
 		pageTitle => Titre de la page qui sera renvoyéen réponse au navigateur
 		innertitle => Titre à afficher dans le corps du document HTML (SEO Friendly)
 #}
-<!doctype html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>{{pageTitle}}</title>
-	</head>
-	<body>
+{%  extends "BlogBundle::layout.html.twig" %}
+{%  block title %}{{  parent() }} - Index{%  endblock %}
+{%  block body %}
 		<header>
-			<h1>{{innerTitle}}</h1>
-			
+			<h1 class="tolower">{{innerTitle}}</h1>
 		</header>	
 		<main>
-			Utiliser twig permet de séparer les tâches :
+			Utiliser <stong>twig</stong> permet de séparer les tâches :
 			<ul>
 				<li>Développeur : Modèle et Contrôleur</li>
 				<li>Intégrateur : Vue Twig ou autre</li>
@@ -26,5 +21,4 @@
 		<footer>
 			Powered by Symfony 2.8
 		</footer>
-	</body>
-</html>
+{% endblock %}

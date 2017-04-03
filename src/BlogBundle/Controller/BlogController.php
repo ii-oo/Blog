@@ -18,7 +18,8 @@ class BlogController extends Controller{
 			"BlogBundle:Hello:index.html.twig",
 			array(
 				"pageTitle" => "J'aime Symfony",
-				"innerTitle" => "Symfony exposé par le contrôleur"
+				"innerTitle" => "Symfony exposé par le contrôleur",
+				"menu" => $this->menu()
 			)
 		 );//"Bonjour Symfony !!!");
 	}
@@ -46,7 +47,7 @@ class BlogController extends Controller{
 			return $this->redirect($url);
 			
 		}
-	
+		
 		//Charger le post correspondant à l'id passé en paramètre
 		return $this->render(
 			"BlogBundle:Hello:article.html.twig",
@@ -55,7 +56,8 @@ class BlogController extends Controller{
 				"innerTitle" => "Symfony exposé par le contrôleur",
 				"id" => $id,
 				"action" => $action,
-				"url" => $url
+				"url" => $url,
+				"menu" => $this->menu()
 			)
 		 );
 	}
@@ -72,7 +74,8 @@ class BlogController extends Controller{
 		return $this->render(
 			"BlogBundle:Hello:ajouter.html.twig",
 			array(
-				"date" => date("d-m-Y H:i:s")
+				"date" => date("d-m-Y H:i:s"),
+				"menu" => $this->menu()
 			)
 		);
 	}	
@@ -91,4 +94,28 @@ class BlogController extends Controller{
 		</html>
 		";
 	}	
+	private function menu(){
+		return  array(
+					array(
+							"libelle" => "Accueil",
+							"route" => "blog_homepage",
+							"titre" => "Retour à l'accueil de myBlog"
+					),
+					array(
+							"libelle" => "Tous les articles",
+							"route" => "blog_hello",
+							"titre" => "Voir tous les articles"
+					),
+					array(
+							"libelle" => "Les 5 derniers articles",
+							"route" => "blog_voir",
+							"titre" => "Voir les 5 derniers articles"
+					),
+					array(
+							"libelle" => "Contact",
+							"route" => "blog_contact",
+							"titre" => "Ecrire au contact"
+					),
+				);
+	}
 }
